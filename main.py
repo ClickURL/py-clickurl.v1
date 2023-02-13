@@ -10,7 +10,7 @@ from controllers import go
 from controllers import get_short_url
 
 # Import model that do encode and decode to base64
-from models.BaseModel import BaseModel
+from models.Converter import Converter
 
 # Create instance of my application
 app = FastAPI()
@@ -19,18 +19,21 @@ app = FastAPI()
 app.include_router(go.router)
 app.include_router(get_short_url.router)
 
+
 # Default page
 @app.get("/")
 async def root():
-    return "Hell World"
+    return "Hello World"
+
 
 # Page for 1. task
 # Inside this endpoint use method from BaseModel for encode a URL
 @app.post("/base64")
 async def base64(url: str):
-    coder = BaseModel()
+    coder = Converter()
     result = coder.encode_url(url)
-    return {"result":result}
+    return {"result": result}
+
 
 # Setting for run the application on the specified localhost and port (from hte Base64 issues)
 if __name__ == "__main__":
