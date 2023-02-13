@@ -35,3 +35,4 @@ async def base64(url: str):
 # Setting for run the application on the specified localhost and port (from hte Base64 issues)
 if __name__ == "__main__":
     uvicorn.run("main:app", host="localhost", port=8080, reload=True)
+    
