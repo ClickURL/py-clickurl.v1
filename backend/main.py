@@ -7,10 +7,15 @@ from fastapi import FastAPI
 from controllers import go
 
 # Import submodule for 3. task
-from controllers import get_short_url
+from controllers import get_short_url, todo_links, todo_users
 
 # Import model that do encode and decode to base64
 from models.Converter import Converter
+
+# uncomment this two lones if without migration
+# from db.database import engine, Base
+# Base.metadata.create_all(engine)
+
 
 # Create instance of my application
 app = FastAPI()
@@ -18,6 +23,8 @@ app = FastAPI()
 # Now we add each our routers to main FastAPI applocation 
 app.include_router(go.router)
 app.include_router(get_short_url.router)
+app.include_router(todo_links.router)
+app.include_router(todo_users.router)
 
 
 # Default page

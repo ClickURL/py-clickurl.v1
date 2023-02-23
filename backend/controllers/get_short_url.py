@@ -13,7 +13,7 @@ from models.Converter import Converter
 router = APIRouter()
 
 # Create a templates object that and use it later. Set the path of my html page
-templates = Jinja2Templates(directory="public")
+templates = Jinja2Templates(directory='../frontend/public')
 
 
 # In httpget method create render of page and return page to client
