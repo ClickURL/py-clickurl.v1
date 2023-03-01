@@ -17,17 +17,17 @@ depends_on = None
 
 
 def upgrade() -> None:
-    op.create_table('user',
+    op.create_table('users',
     sa.Column('id', sa.Integer(), autoincrement=True, nullable=False),
     sa.Column('name', sa.String(), nullable=True),
     sa.Column('created_at', sa.DateTime(), nullable=True),
     sa.PrimaryKeyConstraint('id')
     )
-    op.create_index(op.f('ix_user_id'), 'user', ['id'], unique=False)
-    op.create_index(op.f('ix_user_name'), 'user', ['name'], unique=False)
+    op.create_index(op.f('ix_users_id'), 'users', ['id'], unique=False)
+    op.create_index(op.f('ix_users_name'), 'users', ['name'], unique=False)
 
 
 def downgrade() -> None:
-    op.drop_index(op.f('ix_user_name'), table_name='user')
-    op.drop_index(op.f('ix_user_id'), table_name='user')
-    op.drop_table('user')
+    op.drop_index(op.f('ix_users_name'), table_name='users')
+    op.drop_index(op.f('ix_users_id'), table_name='users')
+    op.drop_table('users')

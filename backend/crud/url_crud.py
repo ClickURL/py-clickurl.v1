@@ -1,4 +1,4 @@
-from sqlalchemy.orm import Session, joinedload
+from sqlalchemy.orm import Session
 
 from schemas.url_schemas import UrlCreate
 from models.url_model import Url

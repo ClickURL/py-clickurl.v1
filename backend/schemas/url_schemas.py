@@ -2,6 +2,8 @@ from datetime import datetime
 from fastapi import Body
 from pydantic import BaseModel
 
+from schemas import user_schemas
+
 class UrlBase(BaseModel):
     value: str
     
@@ -18,6 +20,7 @@ class UrlGet(UrlBase):
     id: int
     created_at : datetime
     created_by : int
+    creator: user_schemas.UserBase
     
     class Config:
         orm_mode = True

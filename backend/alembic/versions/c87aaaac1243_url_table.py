@@ -17,20 +17,20 @@ depends_on = None
 
 
 def upgrade() -> None:
-    op.create_table('url',
+    op.create_table('urls',
     sa.Column('id', sa.Integer(), autoincrement=True, nullable=False),
     sa.Column('value', sa.String(), nullable=False),
     sa.Column('created_at', sa.DateTime(), nullable=True),
     sa.Column('created_by', sa.Integer(), nullable=True),
     sa.Column('deleted_at', sa.DateTime(), nullable=True),
     sa.Column('deleted_by', sa.Integer(), nullable=True),
-    sa.ForeignKeyConstraint(['created_by'], ['user.id'], ),
-    sa.ForeignKeyConstraint(['deleted_by'], ['user.id'], ),
+    sa.ForeignKeyConstraint(['created_by'], ['users.id'], ),
+    sa.ForeignKeyConstraint(['deleted_by'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
-    op.create_index(op.f('ix_url_id'), 'url', ['id'], unique=False)
+    op.create_index(op.f('ix_urls_id'), 'urls', ['id'], unique=False)
 
 
 def downgrade() -> None:
-    op.drop_index(op.f('ix_url_id'), table_name='url')
-    op.drop_table('url')
+    op.drop_index(op.f('ix_urls_id'), table_name='urls')
+    op.drop_table('urls')

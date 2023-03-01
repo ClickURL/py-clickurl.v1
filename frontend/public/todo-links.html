@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo-links</title>
+</head>
+<body>
+    <div>
+        <h3>Get all Links</h3>
+        <button onclick="GetLinks()">Get links</button>
+    </div>
+    <div>
+        <h3>Get one Link</h3>
+        <input type="number" id="LinkOneId"> - Id for Link
+        <button onclick="GetLink()">Get one Link</button>
+    </div>
+    <div>
+        <h3>Create link</h3>
+        <input type="text" id="LinkValue"> - Value of Link
+        <input type="number" id="LinkCreator" value="User_id"> - Id of creator
+        <br>
+        <button onclick="CreateLink()">Create Link</button>
+    </div>
+    <div>
+        <h3>Delete link</h3>
+        <input type="number" id="LinkId"> - Id of Link
+        <input type="number" id="LinkUserId"> - Id of deleter
+        <br>
+        <button onclick="DeleteLink()">Delete Link</button>
+    </div>
+    <script src="/todo-links/app.js"></script>
+</body>
+</html>
