@@ -7,7 +7,7 @@ from db.database import Base
 class Url(Base):
     __tablename__ = "urls"
     
-    id = Column(Integer, primary_key=True, autoincrement=True, index=True)
+    id = Column(Integer, primary_key=True, index=True)
     value = Column(String, nullable=False)
     created_at = Column(DateTime, default=datetime.now)
     created_by = Column(Integer, ForeignKey("users.id"))

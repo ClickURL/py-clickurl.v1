@@ -1,8 +1,7 @@
 # Main file endpoint of my application
 # In this file implemented 1st task
 import uvicorn
-import os
-from fastapi import FastAPI, Request
+from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 
@@ -38,7 +37,7 @@ app.include_router(get_short_url.router)
 app.include_router(todo_links.router)
 app.include_router(todo_users.router)
 
-app.mount("/todo-links", StaticFiles(directory="..\\frontend\\src\\", html = True), name="static")
+app.mount("/todo-links", StaticFiles(directory="./frontend/", html = True), name="static")
 
 # Default page
 @app.get("/")
@@ -53,8 +52,3 @@ async def base64(url: str):
     coder = Converter()
     result = coder.encode_url(url)
     return {"result": result}
-
-
-# Setting for run the application on the specified localhost and port (from hte Base64 issues)
-if __name__ == "__main__":
-    uvicorn.run("main:app", host="localhost", port=8080, reload=True)

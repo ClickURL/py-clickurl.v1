@@ -8,7 +8,7 @@ from models.url_model import Url
 class User(Base):
     __tablename__ = "users"
     
-    id = Column(Integer, primary_key=True, index=True, autoincrement=True, nullable=False)
+    id = Column(Integer, primary_key=True, index=True, nullable=False)
     name = Column(String, index=True)
     created_at = Column(DateTime, default=datetime.now)
     

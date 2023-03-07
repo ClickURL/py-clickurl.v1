@@ -8,7 +8,7 @@ from db.database import get_db
 
 router = APIRouter(tags=["links"])
 
-tempates = Jinja2Templates(directory='../frontend/public')
+tempates = Jinja2Templates(directory='./frontend/public')
 
 @router.get("/todo-links")
 async def main(request: Request):
@@ -31,9 +31,10 @@ def get_url(url_id: int, db: Session = Depends(get_db)):
     return link
 
 
-@router.post("/todo-links/link", response_model=url_schemas.UrlCreate)
+@router.post("/todo-links/link", response_model=url_schemas.UrlGet) #UrlCreate
 def post_url(user_id: int, url_in: url_schemas.UrlCreate, db: Session = Depends(get_db)):
     return url_crud.create_url(db, url_in = url_in, user_id = user_id)
+
 
 
 @router.delete("/todo-links/link/{url_id}", response_model=url_schemas.Url)
@@ -43,5 +44,4 @@ def delete_url(url_id: int, user_id: int, db: Session = Depends(get_db)):
         raise HTTPException(status_code=404, detail="URL not found")
     if link.created_by != user_id:
         raise HTTPException(status_code=403, detail="Forbiden, User not authorize")
-    # url_crud.delete_url(db, url_id = url_id, user_id = user_id)
     return url_crud.delete_url(db, url_id = url_id, user_id = user_id)

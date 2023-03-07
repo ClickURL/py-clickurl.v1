@@ -27,15 +27,15 @@ def downgrade() -> None:
 
 
 userInitData = [
-    {'id': 1, 'name': 'Oleg', 'created_at': datetime.now()},
-    {'id': 2, 'name': 'Vika', 'created_at': datetime.now()},
+    {'name': 'Oleg', 'created_at': datetime.now()},
+    {'name': 'Vika', 'created_at': datetime.now()},
 ]
 
 urlInitData = [
-    {'id': 1, 'value': 'https://alembic.sqlalchemy.org/en/latest/index.html', 'created_at': datetime.now(), 'created_by': 1, 'deleted_at': None, 'deleted_by': None},
-    {'id': 2, 'value': 'https://fastapi.tiangolo.com/', 'created_at': datetime.now(), 'created_by': 1, 'deleted_at': None, 'deleted_by': None},
-    {'id': 3, 'value': 'https://docs.pydantic.dev/', 'created_at': datetime.now(), 'created_by': 1, 'deleted_at': None, 'deleted_by': None},
-    {'id': 4, 'value': 'https://fastapi.tiangolo.com/tutorial/sql-databases/', 'created_at': datetime.now(), 'created_by': 2, 'deleted_at': None, 'deleted_by': None},
-    {'id': 5, 'value': 'https://alembic.sqlalchemy.org/en/latest/tutorial.html', 'created_at': datetime.now(), 'created_by': 2, 'deleted_at': None, 'deleted_by': None},
-    {'id': 6, 'value': 'https://www.sqlalchemy.org/', 'created_at': datetime.now(), 'created_by': 2, 'deleted_at': None, 'deleted_by': None},
+    {'value': 'https://alembic.sqlalchemy.org/en/latest/index.html', 'created_at': datetime.now(), 'created_by': 1, 'deleted_at': None, 'deleted_by': None},
+    {'value': 'https://fastapi.tiangolo.com/', 'created_at': datetime.now(), 'created_by': 1, 'deleted_at': None, 'deleted_by': None},
+    {'value': 'https://docs.pydantic.dev/', 'created_at': datetime.now(), 'created_by': 1, 'deleted_at': None, 'deleted_by': None},
+    {'value': 'https://fastapi.tiangolo.com/tutorial/sql-databases/', 'created_at': datetime.now(), 'created_by': 2, 'deleted_at': None, 'deleted_by': None},
+    {'value': 'https://alembic.sqlalchemy.org/en/latest/tutorial.html', 'created_at': datetime.now(), 'created_by': 2, 'deleted_at': None, 'deleted_by': None},
+    {'value': 'https://www.sqlalchemy.org/', 'created_at': datetime.now(), 'created_by': 2, 'deleted_at': None, 'deleted_by': None},
 ]
