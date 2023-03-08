@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get short url</title>
+</head>
+<body>
+    <div>
+        <form method="post" action="/get_short_url">
+            <label for="original_url">Enter your URL in filed</label>
+            <input name="original_url" id="original_url" value="{{ original_url }}">
+            <input type="submit" value="Get short URL">
+        </form>
+    </div>
+    {% if result_short_url != "" %}
+    <div>
+        <p>There below is your "short" URL</p>
+        <a href="{{ result_short_url }}">{{ result_short_url }}</a>
+    </div>
+    {% endif %}
+</body>
+</html>

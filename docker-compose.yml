@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  app:
+    build: ./backend
+    command: uvicorn main:app --host 0.0.0.0
+    ports:
+      - 8080:8000
+    environment:
+      - DATABASE_URL=postgresql://py_clickurl_user:py_clickurl_pw@postgresDB:5432/py_clickurl
+    depends_on:
+      - postgresDB
+  postgresDB:
+    image: postgres:15.2
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    ports:
+      - 5433:5432
+    expose:
+      - 5433
+    environment:
+      - POSTGRES_USER=py_clickurl_user
+      - POSTGRES_PASSWORD=py_clickurl_pw
+      - POSTGRES_DB=py_clickurl
+
+volumes:
+  postgres_data:
