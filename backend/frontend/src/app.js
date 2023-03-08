@@ -13,7 +13,7 @@ function Create() {
 // Function directly to create a new record in the database
 async function CreateLink(link_value, link_user_id) {
 
-    const response = await fetch(`http://localhost:8080/todo-links/link?user_id=${link_user_id}`, {
+    const response = await fetch(`/todo-links/link?user_id=${link_user_id}`, {
         method: "POST",
         headers: {"Accept": "application/json", "Content-Type": "application/json"},
         body: JSON.stringify({
@@ -36,7 +36,7 @@ async function CreateLink(link_value, link_user_id) {
 async function GetLinks() {
     const skip = 0;
     const limit = 100;
-    const response = await fetch(`http://localhost:8080/todo-links/link?skip=${skip}&limit=${limit}`, {
+    const response = await fetch(`/todo-links/link?skip=${skip}&limit=${limit}`, {
         method: "GET",
         headers: {"Accept": "application/json"}
     });
@@ -53,7 +53,7 @@ async function GetLinks() {
 }
 // Function directly to remove record from the database
 async function DeleteLink(link_id, link_user_id) {
-    const response = await fetch(`http://localhost:8080/todo-links/link/${link_id}?user_id=${link_user_id}`, {
+    const response = await fetch(`/todo-links/link/${link_id}?user_id=${link_user_id}`, {
         method: "DELETE",
         headers: {"Accept": "application/json"}
     });
@@ -133,7 +133,7 @@ function Remove() {
 }
 
 async function GetLink(link_id) {
-    const response = await fetch(`http://localhost:8080/todo-links/link/${link_id}`, {
+    const response = await fetch(`/todo-links/link/${link_id}`, {
         method: "GET",
         headers: {"Accept": "application/json"}
     });
@@ -160,7 +160,7 @@ async function GetUsers() {
     console.log("Get Users");
     const skip = 0;
     const limit = 100;
-    const response = await fetch(`http://localhost:8080/todo-users/user?skip=${skip}&limit=${limit}`, {
+    const response = await fetch(`/todo-users/user?skip=${skip}&limit=${limit}`, {
         method: "GET",
         headers: { "Accept": "application/json"}
     });
@@ -172,7 +172,7 @@ async function GetUser() {
     console.log("Get User");
     const id = document.getElementById('UserId').value;
     console.log(id);
-    const response = await fetch(`http://localhost:8080/todo-users/user/${id}`, {
+    const response = await fetch(`/todo-users/user/${id}`, {
         method: "GET",
         headers: { "Accept": "application/json"}    
     });
@@ -183,7 +183,7 @@ async function GetUser() {
 async function CreateUser() {
     console.log("Create User");
     const user_name = document.getElementById('UserName').value;
-    const response = await fetch(`http://localhost:8080/todo-users/user`, {
+    const response = await fetch(`/todo-users/user`, {
         method: "POST",
         headers: {"Accept": "application/json", "Content-Type": "application/json"},
         body: JSON.stringify({

@@ -22,8 +22,8 @@ def upgrade() -> None:
     op.bulk_insert(Url.__table__, urlInitData)
 
 def downgrade() -> None:
-    op.execute("DELETE FROM public.urls")
-    op.execute("DELETE FROM public.users")
+    op.execute("DELETE FROM urls")
+    op.execute("DELETE FROM users")
 
 
 userInitData = [

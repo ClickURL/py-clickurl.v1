@@ -21,27 +21,27 @@ CONTAINER ID   IMAGE             COMMAND                  CREATED       STATUS  
 After the application starts, navigate to `py-clickurl-app-1` container CLI
 ```
 $ docker exec -t -i CONTAINER_ID /bin/bash
-root@f2c828595531:/pu-clickurl_docker_container#
+root@f2c828595531:/py-clickurl_docker_container#
 ```
 To make migrations using makefile
 
 Get help about command which provides makefile
 ```
-root@f2c828595531:/pu-clickurl_docker_container# make help
+root@f2c828595531:/py-clickurl_docker_container# make help
  The following commands can be used:
  roll-migration:        roll all three migrations: user, url and init data
  roll-back-migration:   roll back to base position
 ```
 Roll migrations
 ```
-root@f2c828595531:/pu-clickurl_docker_container# make roll-migration
+root@f2c828595531:/py-clickurl_docker_container# make roll-migration
 alembic upgrade fe4e4fbeaa33
 INFO  [alembic.runtime.migration] Context impl PostgresqlImpl.
 INFO  [alembic.runtime.migration] Will assume transactional DDL.
 INFO  [alembic.runtime.migration] Running upgrade  -> d8314c4d9cc2, users_table
 INFO  [alembic.runtime.migration] Running upgrade d8314c4d9cc2 -> c87aaaac1243, url_table
 INFO  [alembic.runtime.migration] Running upgrade c87aaaac1243 -> fe4e4fbeaa33, fixture_table
-root@f2c828595531:/pu-clickurl_docker_container#
+root@f2c828595531:/py-clickurl_docker_container#
 ```
 ## Browser
 
