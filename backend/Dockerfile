@@ -1,6 +1,6 @@
 FROM python:3.11.0
 
-WORKDIR /pu-clickurl_docker_container
+WORKDIR /py-clickurl_docker_container
 
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1

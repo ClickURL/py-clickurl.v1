@@ -27,8 +27,8 @@ async def read_url(request: Request):
     })
 
 
-# In httppost method server receive data from client, encodes URL with using BaseModel,
-# create render of page and return page to client with encoded URL like refferences
+# In http post method server receive data from client, encodes URL with using BaseModel,
+# create render of page and return page to client with encoded URL like references
 # to go "controller" from 2nd task
 @router.post("/get_short_url")
 async def convert_url(request: Request, original_url=Form(...)):

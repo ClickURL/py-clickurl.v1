@@ -2,6 +2,7 @@ version: '3.8'
 
 services:
   app:
+    container_name: "py_clickurl_app"
     build: ./backend
     command: uvicorn main:app --host 0.0.0.0
     ports:
@@ -11,6 +12,7 @@ services:
     depends_on:
       - postgresDB
   postgresDB:
+    container_name: "py_clickurl_postgres"
     image: postgres:15.2
     volumes:
       - postgres_data:/var/lib/postgresql/data/
